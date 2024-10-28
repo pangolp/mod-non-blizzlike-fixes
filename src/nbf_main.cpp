@@ -19,9 +19,16 @@ public:
 
     void OnLoadSpellCustomAttr(SpellInfo* spellInfo) override
     {
-        if (spellInfo->Id == SPELL_MAGIC_ROOSTER)
+        switch (spellInfo->Id)
         {
-            spellInfo->Attributes &= ~SPELL_ATTR0_ALLOW_WHILE_MOUNTED;
+            case SPELL_MAGIC_ROOSTER:
+            {
+                spellInfo->Attributes &= ~SPELL_ATTR0_ALLOW_WHILE_MOUNTED;
+                break;
+            }
+
+            default:
+                break;
         }
     }
 };
